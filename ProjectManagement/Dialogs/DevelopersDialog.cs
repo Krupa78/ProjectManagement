@@ -9,6 +9,7 @@ using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.FormFlow;
+using System.Web.Http;
 
 namespace ProjectManagement.Dialogs
 {
@@ -28,6 +29,7 @@ namespace ProjectManagement.Dialogs
         [LuisIntent("Greetings")]
         public async Task Greetings(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
+            //context.Call(new GeneralDialog(), ResumeAfterGeneral);
             var message = await activity as Activity;
             //take hello from user and compare
             if(message.Text.Equals("Hello", StringComparison.InvariantCultureIgnoreCase))
@@ -134,22 +136,29 @@ namespace ProjectManagement.Dialogs
         public async Task ResumeAfterSprint(IDialogContext context, IAwaitable<SprintDetailForm> result)
         {
             var message = await result;
-            //await context.PostAsync("You have received your sprint.");
+            await context.PostAsync(message.sprintTypes.ToString());
             //context.Wait(MessageReceived);
-
+          
             //check condition for sprint-A
-            if (message.sprintTypes.Equals("Sprint A"))
+            if (message.sprintTypes.ToString().Equals("SprintB"))
             {
-                await context.PostAsync("Finding tasks for your selected Sprint");
-                context.Wait(MessageReceived);
-                //context.Call(new AssignedTaskForProject(), ResumeAfterAssignedTask);
+                await context.PostAsync("Finding tasks for your selected Sprint B");
+                //context.Wait(MessageReceived);
+                context.Call(new AssignedTaskForProject(), ResumeAfterAssignedTask);
             }
-            else
+            else if(message.sprintTypes.ToString().Equals("SprintC"))
             {
-                await context.PostAsync("select appropriate sprint");
-                context.Wait(MessageReceived);
+                await context.PostAsync("Finding tasks for your selected Sprint C");
+                //context.Wait(MessageReceived);
+                context.Call(new AssignedTaskForProject(), ResumeAfterAssignedTask);
             }
-        }
+            else if (message.sprintTypes.ToString().Equals("SprintD"))
+            {
+                await context.PostAsync("Finding tasks for your selected Sprint D");
+                //context.Wait(MessageReceived);
+                context.Call(new AssignedTaskForProject(), ResumeAfterAssignedTask);
+            }
+        } 
 
         
         //4. call time given for the task or project dialog
@@ -168,5 +177,104 @@ namespace ProjectManagement.Dialogs
         }
 
 
+        //5. re-open ticket
+        [LuisIntent("ReOpenTicket")]
+        public async Task ReOpenTicket(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Searching for assigned ticket details...");
+            context.Call(new ReOpenedTicketDialog(), ResumeAfterReOpenedTask);
+        }
+        //resume after calling re-open task dialog
+        private async Task ResumeAfterReOpenedTask(IDialogContext context, IAwaitable<object> result)
+        {
+            //var message = await result as Activity; 
+            await context.PostAsync("Hurry up!! You don't have too much time.");
+            context.Wait(MessageReceived);
+        }
+
+
+        //6. release date
+        [LuisIntent("Release")]
+        public async Task Release(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("For which sprint you wanted to know the release date?");
+            var sprintFormFlow = FormDialog.FromForm(SprintDetailForm.SprintForm, FormOptions.PromptInStart);
+            context.Call(sprintFormFlow, ResumeAfterRelease);
+        }
+        //resume after calling re-open task dialog
+        public async Task ResumeAfterRelease(IDialogContext context, IAwaitable<SprintDetailForm> result)
+        {
+            var message = await result;
+            
+            //check condition for sprint-A
+            if (message.sprintTypes.ToString().Equals("SprintB"))
+            {
+                await context.PostAsync("Finding release date for your selected Sprint B");
+                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
+            }
+            else if (message.sprintTypes.ToString().Equals("SprintC"))
+            {
+                await context.PostAsync("Finding release date for your selected Sprint C");
+                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
+            }
+            else if (message.sprintTypes.ToString().Equals("SprintC"))
+            {
+                await context.PostAsync("Finding release date for your selected Sprint D");
+                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
+            }   
+        }
+
+        public async Task ResumeAfterGeneral(IDialogContext context, IAwaitable<object> result)
+        {
+            await context.PostAsync("How else can I help you?");
+            context.Wait(MessageReceived);
+        }
+
+        //7. working-hours
+        [LuisIntent("WorkingHour")]
+        public async Task WorkingHour(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Finding your Project List...");
+            var projectFormFlow = FormDialog.FromForm(ProjectSelectionForm.ProjectForm, FormOptions.PromptInStart);
+            context.Call(projectFormFlow, ResumeAfterWoringhours);
+        }
+        //resume after calling re-open task dialog
+        private async Task ResumeAfterWoringhours(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
+        {
+            var message = await result; 
+            //await context.PostAsync("Hurry up!! You don't have too much time.");
+            //context.Wait(MessageReceived);
+            //check condition for project
+
+            if (message.projectTypes.ToString().Equals("CryptoCurrency"))
+            {
+                await context.PostAsync("Finding working hour for your selected project");
+                context.Call(new WorkingHourDialog(), ResumeAfterGeneral);
+            }
+            else if (message.projectTypes.ToString().Equals("AttendanceAndPayroll"))
+            {
+                await context.PostAsync("Finding working hour for your selected project");
+                context.Call(new WorkingHourDialog(), ResumeAfterGeneral);
+            }
+            else if (message.projectTypes.ToString().Equals("FaceDetection"))
+            {
+                await context.PostAsync("Finding working hour for your selected project");
+                context.Call(new WorkingHourDialog(), ResumeAfterGeneral);
+            }
+            else if (message.projectTypes.ToString().Equals("ProjectManagement"))
+            {
+                await context.PostAsync("Finding working hour for your selected project");
+                context.Call(new WorkingHourDialog(), ResumeAfterGeneral);
+            }
+        }
+
+
+        //8. resources
+        [LuisIntent("Resources")]
+        public async Task Resources(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("Searching for available Resources");
+            context.Call(new ResourceDialog(), ResumeAfterGeneral);
+        }
     }
 }

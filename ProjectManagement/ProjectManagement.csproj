@@ -119,8 +119,12 @@
     <Compile Include="Dialogs\GeneralDialog.cs" />
     <Compile Include="Dialogs\InformationDialog.cs" />
     <Compile Include="Dialogs\ProjectSelectionForm.cs" />
+    <Compile Include="Dialogs\ReleaseDialog.cs" />
+    <Compile Include="Dialogs\ReOpenedTicketDialog.cs" />
+    <Compile Include="Dialogs\ResourceDialog.cs" />
     <Compile Include="Dialogs\SprintDetailForm.cs" />
     <Compile Include="Dialogs\TimeLineDialog.cs" />
+    <Compile Include="Dialogs\WorkingHourDialog.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

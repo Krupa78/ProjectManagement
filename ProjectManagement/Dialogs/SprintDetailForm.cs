@@ -24,9 +24,9 @@ namespace ProjectManagement.Dialogs
     [Serializable]
     public enum SprintTypes
     {
-        SprintA = 1,
-        SprintB = 2,
-        SprintC = 3,
-        SprintD = 4
+        SprintA=1,
+        SprintB,
+        SprintC,
+        SprintD
     }
 }
