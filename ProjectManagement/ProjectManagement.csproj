@@ -120,6 +120,7 @@
     <Compile Include="Dialogs\DevelopersDialog.cs" />
     <Compile Include="Dialogs\GeneralDialog.cs" />
     <Compile Include="Dialogs\InformationDialog.cs" />
+    <Compile Include="Dialogs\MemberDetailsDialog.cs" />
     <Compile Include="Dialogs\PhaseDialog.cs" />
     <Compile Include="Dialogs\ProjectSelectionForm.cs" />
     <Compile Include="Dialogs\ReleaseDialog.cs" />

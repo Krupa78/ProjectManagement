@@ -125,26 +125,27 @@ namespace ProjectManagement.Dialogs
             await context.PostAsync("Finding your Project List...");
             context.Call(new WorkingHourDialog(), ResumeAfterGeneral);
         }
-        //resume after calling re-open task dialog
-        private async Task ResumeAfterWoringhours(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
+       
+        //10. Member Details of project
+        [LuisIntent("ProjectTeam")]
+        public async Task ProjectTeam(IDialogContext context, LuisResult result)
         {
-            
+            await context.PostAsync("Finding team members details for your project...");
+            context.Call(new MemberDetailsDialog(), ResumeAfterGeneral);
         }
 
-
-
-
-
-
-        //2. Call FormFlow by Project Intent
+        //11. List of project
         [LuisIntent("ListOfProject")]
-        public async Task ListOfProject(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        public async Task ListOfProject(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Finding your Project List...");
-            var projectFormFlow = FormDialog.FromForm(ProjectSelectionForm.ProjectForm, FormOptions.PromptInStart);
-            context.Call(projectFormFlow, ResumeAfterProjectSelection);
-            //await context.PostAsync(null);
+            context.Call(new ProjectListDialog(), ResumeAfterGeneral);
         }
+
+
+
+
+
 
         //Resume After Selecting Project
         private async Task ResumeAfterProjectSelection(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
