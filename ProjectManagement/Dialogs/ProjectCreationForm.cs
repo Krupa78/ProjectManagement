@@ -25,4 +25,5 @@ namespace ProjectManagement.Dialogs
                 .Field(nameof(EmployeeId))
                 .Build();
         }
+    }
 }
