@@ -166,6 +166,13 @@ namespace ProjectManagement.Dialogs
             context.Call(new ProjectDefinitionDialog(), ResumeAfterGeneral);
         }
 
+        //15. Project Initiation
+        [LuisIntent("ProjectInitiation")]
+        public async Task ProjectInitiation(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("select project for definition...");
+            context.Call(new ProjectInitiationDialog(), ResumeAfterGeneral);
+        }
 
         public async Task ResumeAfterGeneral(IDialogContext context, IAwaitable<object> result)
         {
