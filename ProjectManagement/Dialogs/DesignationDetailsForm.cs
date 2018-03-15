@@ -41,10 +41,11 @@ namespace ProjectManagement.Dialogs
         [Serializable]
         public enum DesignationTypes
         {
-            Business_Unit=1,
-            Project_Manager=2,
-            Business_Analysts=3,
-            Developers=4
+            Business_Unit = 1,
+            Project_Manager = 2,
+            Business_Analysts = 3,
+            Developers = 4,
+            Client = 5
         }
     }
 }

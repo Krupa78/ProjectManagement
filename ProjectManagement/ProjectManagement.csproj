@@ -114,15 +114,24 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\AssignedTaskForProject.cs" />
+    <Compile Include="Dialogs\CompletedRemainingHourForm.cs" />
+    <Compile Include="Dialogs\CompletedRemainingTaskForm.cs" />
     <Compile Include="Dialogs\DesignationDetailsForm.cs" />
     <Compile Include="Dialogs\DevelopersDialog.cs" />
     <Compile Include="Dialogs\GeneralDialog.cs" />
     <Compile Include="Dialogs\InformationDialog.cs" />
+    <Compile Include="Dialogs\PhaseDialog.cs" />
     <Compile Include="Dialogs\ProjectSelectionForm.cs" />
     <Compile Include="Dialogs\ReleaseDialog.cs" />
     <Compile Include="Dialogs\ReOpenedTicketDialog.cs" />
     <Compile Include="Dialogs\ResourceDialog.cs" />
+    <Compile Include="Dialogs\ScheduleMeetingDialog.cs" />
+    <Compile Include="Dialogs\ScheduleMeetingForm.cs" />
     <Compile Include="Dialogs\SprintDetailForm.cs" />
+    <Compile Include="Dialogs\SprintDialog.cs" />
+    <Compile Include="Dialogs\TaskNextWeekDialog.cs" />
+    <Compile Include="Dialogs\TaskTodayDialog.cs" />
+    <Compile Include="Dialogs\TaskTomorrowDialog.cs" />
     <Compile Include="Dialogs\TimeLineDialog.cs" />
     <Compile Include="Dialogs\WorkingHourDialog.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,9 +150,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

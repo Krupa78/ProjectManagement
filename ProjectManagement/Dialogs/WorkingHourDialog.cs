@@ -1,4 +1,5 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow;
 using System;
 using System.Threading.Tasks;
 
@@ -9,9 +10,48 @@ namespace ProjectManagement.Dialogs
     {
         public async Task StartAsync(IDialogContext context)
         {
-            //await context.PostAsync("Here is the list of tasks assigned to you.");
-            await context.PostAsync("Total hours : 100 hrs");
-            context.Done(true);
+            var projectFormFlow = FormDialog.FromForm(ProjectSelectionForm.ProjectForm, FormOptions.PromptInStart);
+            context.Call(projectFormFlow, ResumeAfterForm);
+        }
+
+        public async Task ResumeAfterForm(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
+        {
+            var message = await result;
+            if (message.projectTypes.ToString().Equals("CryptoCurrency"))
+            {
+                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
+                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+            }
+            else if (message.projectTypes.ToString().Equals("AttendanceAndPayroll"))
+            {
+                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
+                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+            }
+            else if (message.projectTypes.ToString().Equals("FaceDetection"))
+            {
+                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
+                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+            }
+            else
+            {
+                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
+                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+            }
+        }
+
+        public async Task ResumeAfterWorkingHourForm(IDialogContext context, IAwaitable<CompletedRemainingHourForm> result)
+        {
+            var message = await result;
+            if (message.hourTypes.ToString().Equals("CompletedHour"))
+            {
+                await context.PostAsync("Completed hours : 100 hrs");
+                context.Done(true);
+            }
+            else if (message.hourTypes.ToString().Equals("RemainingHour"))
+            {
+                await context.PostAsync("Remaining hours : 50 hrs");
+                context.Done(true);
+            }
         }
     }
 }
