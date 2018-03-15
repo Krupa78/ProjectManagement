@@ -142,86 +142,35 @@ namespace ProjectManagement.Dialogs
             context.Call(new ProjectListDialog(), ResumeAfterGeneral);
         }
 
-
-
-
-
-
-        //Resume After Selecting Project
-        private async Task ResumeAfterProjectSelection(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
-        {
-            var message = await result; 
-            await context.PostAsync("Project selected...");
-            if (message.projectTypes.Equals("Face Detection"))
-            {
-
-                //var sprintFormFlow = FormDialog.FromForm(SprintDetailForm.SprintForm, FormOptions.PromptInStart);
-                //context.Call(sprintFormFlow, ResumeAfterSprint);
-            }
-            else
-            {
-                await context.PostAsync("Select project..........");
-            }
-            context.Wait(MessageReceived);
-        }
-
-        
-        
-
-        
-        
-        
-
-
-        
-
-
-        //6. release date
+        //12. Release
         [LuisIntent("Release")]
         public async Task Release(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("For which sprint you wanted to know the release date?");
-            var sprintFormFlow = FormDialog.FromForm(SprintDetailForm.SprintForm, FormOptions.PromptInStart);
-            context.Call(sprintFormFlow, ResumeAfterRelease);
-        }
-        //resume after calling re-open task dialog
-        public async Task ResumeAfterRelease(IDialogContext context, IAwaitable<SprintDetailForm> result)
-        {
-            var message = await result;
-            
-            //check condition for sprint-A
-            if (message.sprintTypes.ToString().Equals("SprintB"))
-            {
-                await context.PostAsync("Finding release date for your selected Sprint B");
-                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
-            }
-            else if (message.sprintTypes.ToString().Equals("SprintC"))
-            {
-                await context.PostAsync("Finding release date for your selected Sprint C");
-                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
-            }
-            else if (message.sprintTypes.ToString().Equals("SprintC"))
-            {
-                await context.PostAsync("Finding release date for your selected Sprint D");
-                context.Call(new ReleaseDialog(), ResumeAfterGeneral);
-            }   
+            context.Call(new ReleaseDialog(), ResumeAfterGeneral);
         }
 
-        public async Task ResumeAfterGeneral(IDialogContext context, IAwaitable<object> result)
-        {
-            await context.PostAsync("How else can I help you?");
-            context.Wait(MessageReceived);
-        }
-
-        
-
-
-        //8. resources
+        //13. resources
         [LuisIntent("Resources")]
         public async Task Resources(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Searching for available Resources");
             context.Call(new ResourceDialog(), ResumeAfterGeneral);
+        }
+
+        //14. Project definition
+        [LuisIntent("ProjectDetails")]
+        public async Task ProjectDetails(IDialogContext context, LuisResult result)
+        {
+            await context.PostAsync("select project for definition...");
+            context.Call(new ProjectDefinitionDialog(), ResumeAfterGeneral);
+        }
+
+
+        public async Task ResumeAfterGeneral(IDialogContext context, IAwaitable<object> result)
+        {
+            await context.PostAsync("How else can I help you?");
+            context.Wait(MessageReceived);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ProjectManagement.Dialogs
 
         public static IForm<ProjectListForm> ProjectForm()
         {
-            return new FormBuilder<CompletedRemainingHourForm>()
+            return new FormBuilder<ProjectListForm>()
                 .Field(nameof(listTypes))
                 .Build();
         }
@@ -23,5 +23,6 @@ namespace ProjectManagement.Dialogs
     { 
         CompletedProjects = 1,
         CurrentProjects = 2,
+        UnderMaintenance = 3
     }
 }
