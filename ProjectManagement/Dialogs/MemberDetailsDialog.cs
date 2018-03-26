@@ -1,6 +1,8 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Connector;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ProjectManagement.Dialogs
@@ -19,28 +21,100 @@ namespace ProjectManagement.Dialogs
             var message = await result;
             if (message.projectTypes.ToString().Equals("CryptoCurrency"))
             {
+                var activity = await result;
+                var selectedCard = await result;
+
+                var msg = context.MakeMessage();
+
+                var attachment = GetSelectedCard(selectedCard);
+                msg.Attachments.Add(attachment);
+
                 await context.PostAsync("Team members in Cryptocurrency: \n" +
-                    "1. Business Analyst : Vinit Shah \n" + "2. Developers : Mayank Patel");
+                    "1. Developers : Krupa Dankhara <br> "
+                    + "employee Id : Emp001 <br>"
+                    + "3 year exp <br>"
+                    + "Contact : 8527419630 <br>" );
+
+                await context.PostAsync(msg);
                 context.Done(true);
             }
             else if (message.projectTypes.ToString().Equals("AttendanceAndPayroll"))
             {
-                await context.PostAsync("Team members in Attendance And PayRoll: \n" +
-                    "1. Business Analyst : Vinit Shah \n" + "2. Developers : Mayank Patel");
+                var activity = await result;
+                var selectedCard = await result;
+
+                var msg = context.MakeMessage();
+
+                var attachment = GetSelectedCard(selectedCard);
+                msg.Attachments.Add(attachment);
+
+                await context.PostAsync("Team members in Attendance And Payroll: \n" +
+                    "1. Developers : Krupa Dankhara <br> "
+                    + "employee Id : Emp001 <br>"
+                    + "3 year exp <br>"
+                    + "Contact : 8527419630 <br>");
+
+                await context.PostAsync(msg);
                 context.Done(true);
             }
             else if (message.projectTypes.ToString().Equals("FaceDetection"))
             {
+                var activity = await result;
+                var selectedCard = await result;
+
+                var msg = context.MakeMessage();
+
+                var attachment = GetSelectedCard(selectedCard);
+                msg.Attachments.Add(attachment);
+
                 await context.PostAsync("Team members in Face Detection: \n" +
-                    "1. Business Analyst : Vinit Shah \n" + "2. Developers : Mayank Patel");
+                    "1. Developers : Krupa Dankhara <br> "
+                    + "employee Id : Emp001 <br>"
+                    + "3 year exp <br>"
+                    + "Contact : 8527419630 <br>");
+
+                await context.PostAsync(msg);
                 context.Done(true);
             }
             else
             {
+                var activity = await result;
+                var selectedCard = await result;
+
+                var msg = context.MakeMessage();
+
+                var attachment = GetSelectedCard(selectedCard);
+                msg.Attachments.Add(attachment);
+
                 await context.PostAsync("Team members in Project Management: \n" +
-                    "1. Business Analyst : Vinit Shah \n" + "2. Developers : Mayank Patel");
+                    "1. Developers : Krupa Dankhara <br> "
+                    + "employee Id : Emp001 <br>"
+                    + "3 year exp <br>"
+                    + "Contact : 8527419630 <br>");
+
+                await context.PostAsync(msg);
                 context.Done(true);
             }
+        }
+
+        private Attachment GetSelectedCard(object selectedCard)
+        {
+            var heroCard = new HeroCard
+            {
+                Title = "Member Detail",
+                Text = "#Krupa Dankhara",
+                
+                Buttons = new List<CardAction> {
+
+                    new CardAction(ActionTypes.OpenUrl, "Linked in profile", value: "https://www.linkedin.com/in/krupa-dankhara-176667131/"),
+                    //new CardAction(ActionTypes.OpenUrl, "Linked in profile", value: "https://www.linkedin.com/in/kevin-dankhara-a1202b5a/"),
+                    
+                }
+            };
+
+            return heroCard.ToAttachment();
+
+
         }
     }
 }

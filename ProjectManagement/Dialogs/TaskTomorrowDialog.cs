@@ -12,9 +12,6 @@ namespace ProjectManagement.Dialogs
         {
             var taskFormFlow = FormDialog.FromForm(CompletedRemainingTaskForm.TaskForm, FormOptions.PromptInStart);
             context.Call(taskFormFlow, ResumeAfterForm);
-            //await context.PostAsync("Here is the list of tasks for today.");
-            //await context.PostAsync("1. ICR-1 Develop login page. \n" + "2. ICR-2 Develop home page.");
-            //context.Done(true);
         }
 
         public async Task ResumeAfterForm(IDialogContext context, IAwaitable<CompletedRemainingTaskForm> result)

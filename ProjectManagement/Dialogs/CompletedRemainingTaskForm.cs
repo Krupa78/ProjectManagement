@@ -22,8 +22,7 @@ namespace ProjectManagement.Dialogs
     [Serializable]
     public enum TaskTypes
     {
-        //abc=1,
-        CompletedTask = 2,
-        RemainingTask = 3,
+        CompletedTask = 1,
+        RemainingTask = 2,
     }
 }

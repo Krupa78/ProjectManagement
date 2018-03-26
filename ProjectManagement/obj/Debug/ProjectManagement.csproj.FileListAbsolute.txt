@@ -38,3 +38,4 @@ c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\bin\zh-
 c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csproj.CoreCompileInputs.cache
 c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.dll
 c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.pdb
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csprojResolveAssemblyReference.cache
