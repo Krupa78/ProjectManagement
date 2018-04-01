@@ -39,3 +39,5 @@ c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Deb
 c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.dll
 c:\users\krupa dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.pdb
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csprojResolveAssemblyReference.cache
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\bin\ZestClientApi.dll
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\bin\ZestClientApi.pdb

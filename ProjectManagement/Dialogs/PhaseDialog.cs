@@ -20,8 +20,9 @@ namespace ProjectManagement.Dialogs
 
             if (message.projectTypes.ToString().Equals("CryptoCurrency"))
             {
-                await context.PostAsync("Your project is in Testing Phase.");
-                context.Done(true);
+                
+                //await context.PostAsync("Your project is in Testing Phase.");
+                //context.Done(true);
             }
             else if (message.projectTypes.ToString().Equals("FaceDetection"))
             {

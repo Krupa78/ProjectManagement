@@ -1,0 +1,6 @@
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\bin\Debug\ZestClientApi.dll
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\bin\Debug\ZestClientApi.pdb
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csproj.CoreCompileInputs.cache
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.dll
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.pdb
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csprojResolveAssemblyReference.cache
