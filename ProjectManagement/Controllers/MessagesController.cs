@@ -4,7 +4,9 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Autofac;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 using ProjectManagement.Dialogs;
 
@@ -19,11 +21,30 @@ namespace ProjectManagement
             return Chain.From(() => new DevelopersDialog());
         }
 
-        
+        //static MessagesController()
+
+        //{
+
+        //    var builder = new ContainerBuilder();
+
+        //    builder.RegisterType<DevelopersDialog>().AsImplementedInterfaces().InstancePerDependency();
+
+        //    Conversation.UpdateContainer(
+        //        builder =>
+        //        {
+        //            var store = new InMemoryDataStore();
+        //            builder.Register(c => store)
+        //                      .Keyed<IBotDataStore<BotData>>(AzureModule.Key_DataStore)
+        //                      .AsSelf()
+        //                      .SingleInstance();
+        //        });
+        //}
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
+        
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)

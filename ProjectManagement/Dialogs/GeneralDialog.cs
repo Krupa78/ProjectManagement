@@ -27,15 +27,21 @@ namespace ProjectManagement.Dialogs
         public async Task Greetings(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             var message = await activity as Activity;
-         //   if (message.Text.Equals("Hello", StringComparison.InvariantCultureIgnoreCase))
-           // {
-                await context.PostAsync("Hello, Welcome to the Project Management BOT.");
 
+            if (message.Text.Equals("Hello", StringComparison.InvariantCultureIgnoreCase))
+            {
+                await context.PostAsync("Hello, Welcome to the Project Management BOT.");
+                context.Call(new UserLoginDialog(), ResumeAfterUserLogin);
                 //call FormFlow to take designation details from user
-                var designationFormFlow = FormDialog.FromForm(DesignationDetailsForm.DesignationForm, FormOptions.PromptInStart);
-                context.Call(designationFormFlow, ResumeAfterDesignationForm);
-            //}
+                //var designationFormFlow = FormDialog.FromForm(DesignationDetailsForm.DesignationForm, FormOptions.PromptInStart);
+                //context.Call(designationFormFlow, ResumeAfterDesignationForm);
+            }
             
+        }
+
+        private Task ResumeAfterUserLogin(IDialogContext context, IAwaitable<object> result)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task ResumeAfterDesignationForm(IDialogContext context, IAwaitable<DesignationDetailsForm> result)

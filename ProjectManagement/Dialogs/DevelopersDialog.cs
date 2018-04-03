@@ -63,7 +63,11 @@ namespace ProjectManagement.Dialogs
                 await context.PostAsync("Anytime");
                 context.Wait(MessageReceived);
             }
-            
+            else if(message.Text.Equals("Hello", StringComparison.InvariantCultureIgnoreCase))
+            {
+                await context.PostAsync("Hello, Welcome to the Project Management BOT.");
+                context.Call(new UserLoginDialog(), ResumeAfterHelp);
+            }
             else
             {
                 await context.PostAsync("Hey, I'm there.");
