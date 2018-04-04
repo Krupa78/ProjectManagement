@@ -52,3 +52,57 @@ C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Deb
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csproj.CoreCompileInputs.cache
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.dll
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.pdb
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Bot Application.dll.config
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Bot Application.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Bot Application.pdb
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Autofac.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Chronic.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Builder.Autofac.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Builder.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Connector.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Rest.ClientRuntime.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.WindowsAzure.Configuration.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Newtonsoft.Json.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.IdentityModel.Tokens.Jwt.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Extensions.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Formatting.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Primitives.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Security.Cryptography.Algorithms.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Security.Cryptography.Encoding.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Security.Cryptography.Primitives.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Security.Cryptography.X509Certificates.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Web.Http.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Web.Http.WebHost.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ZestClientApi.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ZestClientApi.pdb
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ZestClientApi.dll.config
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Autofac.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Builder.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Builder.Autofac.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.Bot.Connector.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Microsoft.WindowsAzure.Configuration.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\Newtonsoft.Json.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.IdentityModel.Tokens.Jwt.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Extensions.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Formatting.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Net.Http.Primitives.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Web.Http.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\System.Web.Http.WebHost.xml
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ar\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\cs\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\en\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\es\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\fa\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\fr\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ja\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\ru\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csproj.App.config
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csprojResolveAssemblyReference.cache
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\obj\Debug\ProjectManagement.csproj.CoreCompileInputs.cache
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.dll
+G:\cygnet\git proj\ProjectManagement\ProjectManagement\obj\Debug\Bot Application.pdb
