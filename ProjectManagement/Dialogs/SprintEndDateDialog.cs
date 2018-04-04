@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace ProjectManagement.Dialogs
 {
     [Serializable]
-    class ReleaseDialog : IDialog<object>
+    class SprintEndDateDialog : IDialog<object>
     {
         public async Task StartAsync(IDialogContext context)
         {

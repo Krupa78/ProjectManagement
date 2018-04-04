@@ -10,7 +10,6 @@ namespace ProjectManagement.Dialogs
     {
         public async Task StartAsync(IDialogContext context)
         {
-       
             var projectFormFlow = FormDialog.FromForm(ProjectSelectionForm.ProjectForm, FormOptions.PromptInStart);
             context.Call(projectFormFlow, ResumeAfterForm);
         }

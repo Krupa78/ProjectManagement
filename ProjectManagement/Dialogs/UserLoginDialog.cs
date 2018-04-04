@@ -40,18 +40,28 @@ namespace ProjectManagement.Dialogs
             Password = (pass.Text);
             var ac = new AuthenticationClient();
             string t = await ac.TokenCalling(UserName, Password);
-            await context.PostAsync($"Response is {t}");
-            context.UserData.SetValue("Token", t);
-            Conversation.UpdateContainer(
-               builder =>
-               {
-                   var store = new InMemoryDataStore();
-                   builder.Register(c => store)
-                          .Keyed<IBotDataStore<BotData>>(t)
-                          .AsSelf()
-                          .SingleInstance();
-               });
-            context.Done(true);
+            if(t==null)
+            {
+                await context.PostAsync("wrong credentials");
+                context.Wait(GetUser);
+            }
+            if (t != null)
+            {
+                await context.PostAsync($"Response is {t}");
+                context.UserData.SetValue("Token", t);
+                context.Done(true);
+            }    
+            
+            //Conversation.UpdateContainer(
+            //   builder =>
+            //   {
+            //       var store = new InMemoryDataStore();
+            //       builder.Register(c => store)
+            //              .Keyed<IBotDataStore<BotData>>(t)
+            //              .AsSelf()
+            //              .SingleInstance();
+            //   });
+            //context.Done(true);
         }
 
     }

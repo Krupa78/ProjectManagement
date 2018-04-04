@@ -28,10 +28,30 @@ namespace ProjectManagement.Dialogs
             BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
             var obj = JObject.Parse(userData.Data.ToString());
             var token = (string)obj["Token"];
-            ProductClient pc = new ProductClient();
-            string t = await pc.ProductDetails(token);
-            await context.PostAsync($"Response is {t}");
-            context.Done(true);
+            //ProductClient pc = new ProductClient();
+            //string t = await pc.ProductDetails(token);
+
+            //await context.PostAsync($"Response is {t}");
+            //context.Done(true);
+            if (token == null)
+            {
+                await context.PostAsync("Need to Login to access data");
+                context.Call(new UserLoginDialog(), ResumeAfteNullToken);
+
+            }
+            if (token != null)
+            {
+                ProductClient proc = new ProductClient();
+                string temp = await proc.ProductDetails(token);
+
+                await context.PostAsync($"Response is {temp}");
+                context.Done(true);
+            }
+        }
+
+        private async Task ResumeAfteNullToken(IDialogContext context, IAwaitable<object> result)
+        {
+            await context.PostAsync("Login Successful!!!");
         }
     }
 }

@@ -126,9 +126,9 @@ namespace ProjectManagement.Dialogs
             context.Call(new SprintDurationDialog(), ResumeAfterGeneral);
         }
 
-        //12. phase
-        [LuisIntent("Phase")]
-        public async Task Phase(IDialogContext context, LuisResult result)
+        //12. current phase of project
+        [LuisIntent("CurrentPhase")]
+        public async Task CurrentPhase(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Select project to know the current phase...");
             context.Call(new PhaseDialog(), ResumeAfterGeneral);
@@ -175,11 +175,11 @@ namespace ProjectManagement.Dialogs
         }
 
         //18. Number of Member
-        [LuisIntent("NoProjectTeam")]
-        public async Task NoProjectTeam(IDialogContext context, LuisResult result)
+        [LuisIntent("NoOfMembers")]
+        public async Task NoOfMembers(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("Finding team members details for your project...");
-            context.Call(new NoProjectTeamDialog(), ResumeAfterGeneral);
+            context.Call(new NoOfMembersDialog(), ResumeAfterGeneral);
         }
 
         //19. List of project
@@ -206,12 +206,12 @@ namespace ProjectManagement.Dialogs
             context.Call(new CurrentProjectListDialog(), ResumeAfterGeneral);
         }
 
-        //22. Release
-        [LuisIntent("Release")]
-        public async Task Release(IDialogContext context, LuisResult result)
+        //22. End date of sprint
+        [LuisIntent("SprintEndDate")]
+        public async Task SprintEndDate(IDialogContext context, LuisResult result)
         {
             await context.PostAsync("For which sprint you wanted to know the release date?");
-            context.Call(new ReleaseDialog(), ResumeAfterGeneral);
+            context.Call(new SprintEndDateDialog(), ResumeAfterGeneral);
         }
 
         //23. resources
@@ -258,6 +258,97 @@ namespace ProjectManagement.Dialogs
         public async Task RemainingTask(IDialogContext context, LuisResult result)
         {
             context.Call(new RemainingTaskDialog(), ResumeAfterGeneral);
+        }
+
+        //29.project status
+        [LuisIntent("ProjectStatus")]
+        public async Task ProjectStatus(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ProjectStatusDialog(), ResumeAfterGeneral);
+        }
+
+        //30.technology of project
+        [LuisIntent("TechnologyOfProject")]
+        public async Task TechnologyOfProject(IDialogContext context, LuisResult result)
+        {
+            context.Call(new TechnologyOfProjectDialog(), ResumeAfterGeneral);
+        }
+
+        //31.projct domain
+        [LuisIntent("ProjectDomain")]
+        public async Task ProjectDomain(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ProjectDomainDialog(), ResumeAfterGeneral);
+        }
+
+        //32. Project role
+        [LuisIntent("ProjectRole")]
+        public async Task ProjectRole(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ProjectRoleDialog(), ResumeAfterGeneral);
+        }
+
+        //33. remaining hour for task
+        [LuisIntent("TaskRemainingHour")]
+        public async Task TaskRemainingHour(IDialogContext context, LuisResult result)
+        {
+            context.Call(new TaskRemainingHourDialog(), ResumeAfterGeneral);
+        }
+
+        //34. estimated hour for task
+        [LuisIntent("TaskEstimatedHour")]
+        public async Task TaskEstimatedHour(IDialogContext context, LuisResult result)
+        {
+            context.Call(new TaskEstimatedHourDialog(), ResumeAfterGeneral);
+        }
+
+        //35. type of task
+        [LuisIntent("TaskType")]
+        public async Task TaskType(IDialogContext context, LuisResult result)
+        {
+            context.Call(new TaskTypeDialog(), ResumeAfterGeneral);
+        }
+
+        //36. Client name
+        [LuisIntent("ClientName")]
+        public async Task ClientName(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ClientNameDialog(), ResumeAfterGeneral);
+        }
+        
+        //37. priority of project
+        [LuisIntent("ProjectPriority")]
+        public async Task ProjectPriority(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ProjectPriorityDialog(), ResumeAfterGeneral);
+        }
+
+        //38. Start date of planning for any project
+        [LuisIntent("PlannedStartDate")]
+        public async Task PlannedStartDate(IDialogContext context, LuisResult result)
+        {
+            context.Call(new PlannedStartDateDialog(), ResumeAfterGeneral);
+        }
+
+        //39. end date of planning for any project
+        [LuisIntent("PlannedEndDate")]
+        public async Task PlannedEndDate(IDialogContext context, LuisResult result)
+        {
+            context.Call(new PlannedEndDateDialog(), ResumeAfterGeneral);
+        }
+
+        //40. actual start date for any project
+        [LuisIntent("ActualStartDate")]
+        public async Task ActualStartDate(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ActualStartDateDialog(), ResumeAfterGeneral);
+        }
+
+        //41. actual end date for any project
+        [LuisIntent("ActualEndDate")]
+        public async Task ActualEndDate(IDialogContext context, LuisResult result)
+        {
+            context.Call(new ActualEndDateDialog(), ResumeAfterGeneral);
         }
 
         //resume after all

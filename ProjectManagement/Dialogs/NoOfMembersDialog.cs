@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace ProjectManagement.Dialogs
 {
     [Serializable]
-    class NoProjectTeamDialog : IDialog<object>
+    class NoOfMembersDialog : IDialog<object>
     {
         public async Task StartAsync(IDialogContext context)
         {
