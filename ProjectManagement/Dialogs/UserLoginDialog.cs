@@ -50,18 +50,18 @@ namespace ProjectManagement.Dialogs
                 await context.PostAsync($"Response is {t}");
                 context.UserData.SetValue("Token", t);
                 context.Done(true);
-            }    
-            
-            //Conversation.UpdateContainer(
-            //   builder =>
-            //   {
-            //       var store = new InMemoryDataStore();
-            //       builder.Register(c => store)
-            //              .Keyed<IBotDataStore<BotData>>(t)
-            //              .AsSelf()
-            //              .SingleInstance();
-            //   });
-            //context.Done(true);
+            }
+
+            Conversation.UpdateContainer(
+               builder =>
+               {
+                   var store = new InMemoryDataStore();
+                   builder.Register(c => store)
+                          .Keyed<IBotDataStore<BotData>>(t)
+                          .AsSelf()
+                          .SingleInstance();
+               });
+            context.Done(true);
         }
 
     }

@@ -65,7 +65,7 @@ namespace ProjectManagement.Dialogs
             }
             else if(message.Text.Equals("Hello", StringComparison.InvariantCultureIgnoreCase))
             {
-                await context.PostAsync("Hello, Welcome to the Project Management BOT.");
+                //await context.PostAsync("Hello, Welcome to the Project Management BOT.");
                 context.Call(new UserLoginDialog(), ResumeAfterHelp);
             }
             else
@@ -80,22 +80,22 @@ namespace ProjectManagement.Dialogs
             context.Wait(MessageReceived);
         }
 
-
-        //6. task for today
+        
+        //6. task for today - no api
         [LuisIntent("TaskToday")]
         public async Task TaskToday(IDialogContext context, IAwaitable<object> activity,LuisResult result)
         {
             context.Call(new TaskTodayDialog(), ResumeAfterGeneral);
         }
 
-        //7. task for tomorrow
+        //7. task for tomorrow - no api
         [LuisIntent("TaskTomorrow")]
         public async Task TaskTomorrow(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             context.Call(new TaskTomorrowDialog(), ResumeAfterGeneral);
         }
 
-        //8. task for next week
+        //8. task for next week - no api
         [LuisIntent("TaskNextWeek")]
         public async Task TaskNextWeek(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {

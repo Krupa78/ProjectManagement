@@ -12,7 +12,7 @@ namespace ProjectManagement.Dialogs
         {
 
             await context.PostAsync("**Hi! Here is a list of stuff I can help you with:** <br>" +
-                "* #Task For Today : to know about the today's completede and remaining task.* <br>" +
+                "* #Task For Today : to know about the today's completed and remaining task.* <br>" +
                 "* #Sprint Details : get to know about the start date and end date of any sprint for the selected project.* <br>" +
                 "* #Project List : get list of current and completed project list.* <br>" +
                 "* #Project definition : give information regarding the selected project.* <br>" +

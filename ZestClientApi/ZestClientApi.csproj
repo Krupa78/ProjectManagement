@@ -72,7 +72,7 @@
     <Compile Include="Repository\AuthenticationClient.cs" />
     <Compile Include="Repository\PhaseOfProject.cs" />
     <Compile Include="Repository\ProductClient.cs" />
-    <Compile Include="Repository\ProjectStatusClient.cs" />
+    <Compile Include="Repository\SprintClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
