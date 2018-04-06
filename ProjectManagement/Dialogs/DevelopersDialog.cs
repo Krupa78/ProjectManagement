@@ -130,7 +130,6 @@ namespace ProjectManagement.Dialogs
         [LuisIntent("CurrentPhase")]
         public async Task CurrentPhase(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("Select project to know the current phase...");
             context.Call(new PhaseDialog(), ResumeAfterGeneral);
         }
 
