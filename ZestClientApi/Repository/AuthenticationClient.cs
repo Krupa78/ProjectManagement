@@ -18,9 +18,9 @@ namespace ZestClientApi.Repository
             cons.DefaultRequestHeaders.Accept.Clear();
             cons.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            if (username.Equals("Krupa", StringComparison.InvariantCultureIgnoreCase) && password.Equals("1234", StringComparison.InvariantCultureIgnoreCase))
+            if (username.Equals("Mukesh1", StringComparison.InvariantCulture) && password.Equals("Admin123", StringComparison.InvariantCulture))
             {
-                var tag = new AuthenticationRequest { UserName = username, Password = password, AuthenticationType = "form" };
+                var tag = new AuthenticationRequest { username = username, password = password, AuthenticationType = "form" };
                 string req = JsonConvert.SerializeObject(tag);
                 HttpContent content = new StringContent(tag.ToString(), Encoding.UTF8, "application/json");
                 HttpResponseMessage res = cons.PostAsync("http://localhost:57144/api/Authentication/UserLogin", new StringContent(@"{""RequestJSON"":" + req + "}", Encoding.Default, "application/json")).Result;
@@ -49,8 +49,8 @@ namespace ZestClientApi.Repository
     }
     public class AuthenticationRequest
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
         public string AuthenticationType { get; set; }
     }
 }

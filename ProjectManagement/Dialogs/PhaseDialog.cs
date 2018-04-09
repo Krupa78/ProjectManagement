@@ -15,7 +15,7 @@ namespace ProjectManagement.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
-            context.PostAsync("Enter the project code");
+            context.PostAsync("**Enter the project code**");
             context.Wait(this.GetProjectPhase);
         }
 
@@ -41,7 +41,7 @@ namespace ProjectManagement.Dialogs
                 PhaseClient pc = new PhaseClient();
                 string phase = await pc.PhaseDetails(token, ProjectCode);
 
-                await context.PostAsync($"Response is {phase}");
+                await context.PostAsync($"Your project is in {phase}");
                 context.Done(true);
             }
         }

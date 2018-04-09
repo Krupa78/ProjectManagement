@@ -44,7 +44,7 @@ namespace ProjectManagement.Dialogs
         public async Task ResumeAfterSprint(IDialogContext context, IAwaitable<object> result)
         {
             var message = await result;
-            await context.PostAsync("Sprint Duration of project is 20 Days.");
+            await context.PostAsync("Sprint Duration of project is 15 Days.");
             context.Done(true);
         }
 

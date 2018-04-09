@@ -19,7 +19,8 @@ namespace ProjectManagement.Dialogs
             var message = await result;
             if (message.projectTypes.ToString().Equals("CryptoCurrency"))
             {
-                await context.PostAsync("*Project Name* : Crypro Currency<br>" + 
+                await context.PostAsync("*Project Name* : Crypro Currency<br>" +
+                    "*Project Code* : DEM05" +
                     "*Client Name* : Dr. Nilesh Modi<br>" + 
                     "*Project Type* : Product<br>" + 
                     "*Current Phase* : Project Initiation<br>" +
@@ -29,6 +30,7 @@ namespace ProjectManagement.Dialogs
             else if (message.projectTypes.ToString().Equals("AttendanceAndPayroll"))
             {
                 await context.PostAsync("*Project Name* : Attendance And PayRoll<br>" +
+                    "*Project Code* : DEM05" +
                     "*Client Name* : Dr. Nilesh Modi<br>" +
                     "*Project Type* : Product<br>" +
                     "*Current Phase* : Project Initiation<br>" +
@@ -38,6 +40,7 @@ namespace ProjectManagement.Dialogs
             else if (message.projectTypes.ToString().Equals("FaceDetection"))
             {
                 await context.PostAsync("*Project Name* : Face Detection<br>" +
+                    "*Project Code* : DEM05" +
                     "*Client Name* : Dr. Nilesh Modi<br>" +
                     "*Project Type* : Product<br>" +
                     "*Current Phase* : Project Initiation<br>" +
@@ -47,6 +50,7 @@ namespace ProjectManagement.Dialogs
             else if (message.projectTypes.ToString().Equals("ProjectManagement"))
             {
                 await context.PostAsync("*Project Name* : Project Management<br>" +
+                    "*Project Code* : DEM05" +
                     "**Client Name** : Dr. Nilesh Modi<br>" +
                     "**Project Type** : Product<br>" +
                     "**Current Phase** : Project Initiation<br>" +

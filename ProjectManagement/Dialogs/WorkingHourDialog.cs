@@ -44,12 +44,12 @@ namespace ProjectManagement.Dialogs
             var message = await result;
             if (message.hourTypes.ToString().Equals("CompletedHour"))
             {
-                await context.PostAsync("Completed hours : 0 hrs");
+                await context.PostAsync("Completed hours : 500 hrs");
                 context.Done(true);
             }
             else if (message.hourTypes.ToString().Equals("RemainingHour"))
             {
-                await context.PostAsync("Remaining hours : 50 hrs");
+                await context.PostAsync("Remaining hours : 400 hrs");
                 context.Done(true);
             }
         }

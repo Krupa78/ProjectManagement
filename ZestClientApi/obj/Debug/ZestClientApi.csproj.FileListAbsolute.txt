@@ -36,7 +36,7 @@ C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\bin\Debug\S
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csproj.App.config
+C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csprojResolveAssemblyReference.cache
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csproj.CoreCompileInputs.cache
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.dll
 C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.pdb
-C:\Users\Krupa Dankhara\source\repos\ProjectManagement\ZestClientApi\obj\Debug\ZestClientApi.csprojResolveAssemblyReference.cache

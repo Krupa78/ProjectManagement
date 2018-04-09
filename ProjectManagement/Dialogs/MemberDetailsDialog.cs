@@ -30,7 +30,7 @@ namespace ProjectManagement.Dialogs
                 msg.Attachments.Add(attachment);
 
                 await context.PostAsync("Team members in Cryptocurrency: \n" +
-                    "1. Developers : Krupa Dankhara <br> "
+                    "1. Developers : Maulik Patadia <br> "
                     + "employee Id : Emp001 <br>"
                     + "3 year exp <br>"
                     + "Contact : 8527419630 <br>" );
@@ -49,7 +49,7 @@ namespace ProjectManagement.Dialogs
                 msg.Attachments.Add(attachment);
 
                 await context.PostAsync("Team members in Attendance And Payroll: \n" +
-                    "1. Developers : Krupa Dankhara <br> "
+                    "1. Developers : Maulik Patadia <br> "
                     + "employee Id : Emp001 <br>"
                     + "3 year exp <br>"
                     + "Contact : 8527419630 <br>");
@@ -68,7 +68,7 @@ namespace ProjectManagement.Dialogs
                 msg.Attachments.Add(attachment);
 
                 await context.PostAsync("Team members in Face Detection: \n" +
-                    "1. Developers : Krupa Dankhara <br> "
+                    "1. Developers : Maulik Patadia <br> "
                     + "employee Id : Emp001 <br>"
                     + "3 year exp <br>"
                     + "Contact : 8527419630 <br>");
@@ -87,7 +87,7 @@ namespace ProjectManagement.Dialogs
                 msg.Attachments.Add(attachment);
 
                 await context.PostAsync("Team members in Project Management: \n" +
-                    "1. Developers : Krupa Dankhara <br> "
+                    "Developers : Maulik Patadia <br> "
                     + "employee Id : Emp001 <br>"
                     + "3 year exp <br>"
                     + "Contact : 8527419630 <br>");
@@ -102,11 +102,11 @@ namespace ProjectManagement.Dialogs
             var heroCard = new HeroCard
             {
                 Title = "Member Detail",
-                Text = "#Krupa Dankhara",
+                Text = "**Maulik Patadia**",
                 
                 Buttons = new List<CardAction> {
 
-                    new CardAction(ActionTypes.OpenUrl, "Linked in profile", value: "https://www.linkedin.com/in/krupa-dankhara-176667131/"),
+                    new CardAction(ActionTypes.OpenUrl, "Linked in profile", value: "https://www.linkedin.com/in/maulik-patadia-222761137/"),
                     //new CardAction(ActionTypes.OpenUrl, "Linked in profile", value: "https://www.linkedin.com/in/kevin-dankhara-a1202b5a/"),
                     
                 }

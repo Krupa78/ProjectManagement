@@ -1,5 +1,6 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Connector;
 using System;
 using System.Threading.Tasks;
 
@@ -42,8 +43,8 @@ namespace ProjectManagement.Dialogs
 
         public async Task ResumeAfterSprint(IDialogContext context, IAwaitable<object> result)
         {
-            var message = await result;
-            await context.PostAsync($"Starting Date of {message} is 10th January,2018");
+            var message = await result as Activity;
+            await context.PostAsync($"Starting Date is 10th January,2018");
             context.Done(true);
         }
 

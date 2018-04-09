@@ -22,8 +22,6 @@ namespace ProjectManagement.Dialogs
     [Serializable]
     public class ResourceDialog : IDialog<object>
     {
-        public string UserName { get; private set; }
-        public string PassWord { get; private set; }
 
         public async Task StartAsync(IDialogContext context)
         {

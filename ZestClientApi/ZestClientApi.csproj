@@ -70,9 +70,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuthenticationClient.cs" />
+    <Compile Include="Repository\BotAuthenticationClient.cs" />
     <Compile Include="Repository\PhaseClient.cs" />
     <Compile Include="Repository\ProductClient.cs" />
     <Compile Include="Repository\SprintClient.cs" />
+    <Compile Include="Repository\TechnologyClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
