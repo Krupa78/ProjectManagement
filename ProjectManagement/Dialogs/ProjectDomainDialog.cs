@@ -1,25 +1,61 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Connector;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
+using ZestClientApi.Repository;
 
 namespace ProjectManagement.Dialogs
 {
     [Serializable]
     public class ProjectDomainDialog : IDialog<object>
     {
+        public string ProjectCode { get; set; }
+
         public async Task StartAsync(IDialogContext context)
         {
 
-            await context.PostAsync("**Hi! Here is a list of stuff I can help you with:** <br>" +
-                "* #Task For Today : to know about the today's completede and remaining task.* <br>" +
-                "* #Sprint Details : get to know about the start date and end date of any sprint for the selected project.* <br>" +
-                "* #Project List : get list of current and completed project list.* <br>" +
-                "* #Project definition : give information regarding the selected project.* <br>" +
-                "* #Project creation : this can help you to initiate new project.* <br>" +
-                "* #Phase of project : give the current phase of project.* <br>" +
-                "* #Team Details : get the information of all the team members.* <br>" +
-                "* #Schedule Meeting : help to schedule meeting by selecting time and place* <br>");
+            context.PostAsync("**Enter the project code**");
+            context.Wait(this.GetProjectDomain);
+        }
+
+        public async Task GetProjectDomain(IDialogContext context, IAwaitable<object> result)
+        {
+            var projCode = await result as Activity;
+            var activity = await result as Activity;
+            ProjectCode = (projCode.Text);
+
+            StateClient stateClient = activity.GetStateClient();
+            BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
+            if (userData != null && userData.Data != null)
+            {
+                var obj = JObject.Parse(userData.Data.ToString());
+                var token = (string)obj["Authorization_Token_ProjectManagement"];
+                
+                if(token != null)
+                {
+                    ProjectDetailsClient tc = new ProjectDetailsClient();
+                    var details = await tc.AllDetails(token, ProjectCode);
+
+                    await context.PostAsync($"{details.ResponseJSON.ProjName} :: {details.ResponseJSON.ProjDomain}");
+                    context.Done(true);
+                }
+                else
+                {
+                    await context.PostAsync("Need to Login to access data");
+                    context.Call(new UserLoginDialog(), ResumeAfteNullToken);
+                }
+            }
+            else
+            {
+                await context.PostAsync("Please Type **'Hello'** to Login ");
+            }
+        }
+        private async Task ResumeAfteNullToken(IDialogContext context, IAwaitable<object> result)
+        {
+            await context.PostAsync("Login Successful!!!");
             context.Done(true);
         }
+
     }
 }

@@ -27,29 +27,35 @@ namespace ProjectManagement.Dialogs
 
             StateClient stateClient = activity.GetStateClient();
             BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
-            var obj = JObject.Parse(userData.Data.ToString());
-            var token = (string)obj["Token"];
-
-            if (token == null)
+            if (userData != null && userData.Data != null)
             {
-                await context.PostAsync("Need to Login to access data");
-                context.Call(new UserLoginDialog(), ResumeAfteNullToken);
+                var obj = JObject.Parse(userData.Data.ToString());
+                var token = (string)obj["Authorization_Token_ProjectManagement"];
 
+                if(token !=null)
+                {
+                    ProjectDetailsClient pc = new ProjectDetailsClient();
+                    var details = await pc.AllDetails(token, ProjectCode);
+
+                    await context.PostAsync($"{details.ResponseJSON.ProjName} is in {details.ResponseJSON.ProjPhase}");
+                    context.Done(true);
+                }
+                else
+                {
+                    await context.PostAsync("Need to Login to access data");
+                    context.Call(new UserLoginDialog(), ResumeAfteNullToken);
+                }
             }
-            if (token != null)
+            else
             {
-                PhaseClient pc = new PhaseClient();
-                string phase = await pc.PhaseDetails(token, ProjectCode);
-
-                await context.PostAsync($"Your project is in {phase}");
-                context.Done(true);
+                await context.PostAsync("Please Type **'Hello'** to Login ");
             }
         }
 
         private async Task ResumeAfteNullToken(IDialogContext context, IAwaitable<object> result)
         {
             await context.PostAsync("Login Successful!!!");
-            context.Done(true);
+            //context.Done(true);
         }
     
 

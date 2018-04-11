@@ -18,8 +18,8 @@ namespace ZestClientApi.Repository
             cons.DefaultRequestHeaders.Accept.Clear();
             cons.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            if (username.Equals("Mukesh1", StringComparison.InvariantCulture) && password.Equals("Admin123", StringComparison.InvariantCulture))
-            {
+            //if (username.Equals("Mukesh1", StringComparison.InvariantCulture) && password.Equals("Admin123", StringComparison.InvariantCulture))
+            //{
                 var tag = new AuthenticationRequest { username = username, password = password, AuthenticationType = "form" };
                 string req = JsonConvert.SerializeObject(tag);
                 HttpContent content = new StringContent(tag.ToString(), Encoding.UTF8, "application/json");
@@ -28,11 +28,11 @@ namespace ZestClientApi.Repository
                 var token = data.ResponseJSON.AuthorizationToken;
                 string t = token.ToString();
                 return t;
-            }
-            else
-            {
-                return ("You have entered wrong credentials !!! <br> Loginto access data..");
-            }
+            //}
+            //else
+            //{
+              //  return ("You have entered wrong credentials !!! <br> Loginto access data..");
+            //}
         }
     }
     public class AuthenticationResponse

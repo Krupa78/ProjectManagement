@@ -94,6 +94,7 @@ namespace ProjectManagement
                             attachment1.ContentType = "image/png";
                             attachment1.ContentUrl = "F:/ZEST/BOT_Project/ProjectManagement-master/welcome.png";
                             msg.Attachments.Add(attachment1);
+                            reply.Text = $"Type 'Hello' for Authentication.";
                             client.Conversations.ReplyToActivityAsync(msg);
                         }
                     }

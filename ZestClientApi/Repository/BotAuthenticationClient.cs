@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zest_Client.repository
+namespace ZestClientApi.Repository
 {
     public class BotAuthenticationClient
     {

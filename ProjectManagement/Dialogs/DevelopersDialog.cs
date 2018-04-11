@@ -225,7 +225,7 @@ namespace ProjectManagement.Dialogs
         [LuisIntent("ProjectDetails")]
         public async Task ProjectDetails(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync("select project for definition...");
+            //await context.PostAsync("select project for definition...");
             context.Call(new ProjectDefinitionDialog(), ResumeAfterGeneral);
         }
 

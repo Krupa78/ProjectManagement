@@ -1,57 +1,61 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Connector;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
+using ZestClientApi.Repository;
 
 namespace ProjectManagement.Dialogs
 {
     [Serializable]
     public class WorkingHourDialog : IDialog<object>
     {
+        public string ProjectCode { get; set; }
+
         public async Task StartAsync(IDialogContext context)
         {
-            var projectFormFlow = FormDialog.FromForm(ProjectSelectionForm.ProjectForm, FormOptions.PromptInStart);
-            context.Call(projectFormFlow, ResumeAfterForm);
+
+            context.PostAsync("**Enter the project code**");
+            context.Wait(this.GetWorkingHour);
         }
 
-        public async Task ResumeAfterForm(IDialogContext context, IAwaitable<ProjectSelectionForm> result)
+        public async Task GetWorkingHour(IDialogContext context, IAwaitable<object> result)
         {
-            var message = await result;
-            if (message.projectTypes.ToString().Equals("CryptoCurrency"))
+            var projCode = await result as Activity;
+            var activity = await result as Activity;
+            ProjectCode = (projCode.Text);
+
+            StateClient stateClient = activity.GetStateClient();
+            BotData userData = await stateClient.BotState.GetUserDataAsync(activity.ChannelId, activity.From.Id);
+            if (userData != null && userData.Data != null)
             {
-                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
-                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
-            }
-            else if (message.projectTypes.ToString().Equals("AttendanceAndPayroll"))
-            {
-                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
-                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
-            }
-            else if (message.projectTypes.ToString().Equals("FaceDetection"))
-            {
-                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
-                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+                var obj = JObject.Parse(userData.Data.ToString());
+                var token = (string)obj["Authorization_Token_ProjectManagement"];
+                
+                if (token != null)
+                {
+                    ProjectDetailsClient tc = new ProjectDetailsClient();
+                    var details = await tc.AllDetails(token, ProjectCode);
+
+                    await context.PostAsync($"Total Hours for {details.ResponseJSON.ProjName} is **{details.ResponseJSON.WorkingHour}**");
+                    context.Done(true);
+                }
+                else
+                {
+                    await context.PostAsync("Need to Login to access data");
+                    context.Call(new UserLoginDialog(), ResumeAfteNullToken);
+                }
             }
             else
             {
-                var workingHourFormFlow = FormDialog.FromForm(CompletedRemainingHourForm.WorkingHourForm, FormOptions.PromptInStart);
-                context.Call(workingHourFormFlow, ResumeAfterWorkingHourForm);
+                await context.PostAsync("Please Type **'Hello'** to Login ");
             }
         }
-
-        public async Task ResumeAfterWorkingHourForm(IDialogContext context, IAwaitable<CompletedRemainingHourForm> result)
+        private async Task ResumeAfteNullToken(IDialogContext context, IAwaitable<object> result)
         {
-            var message = await result;
-            if (message.hourTypes.ToString().Equals("CompletedHour"))
-            {
-                await context.PostAsync("Completed hours : 500 hrs");
-                context.Done(true);
-            }
-            else if (message.hourTypes.ToString().Equals("RemainingHour"))
-            {
-                await context.PostAsync("Remaining hours : 400 hrs");
-                context.Done(true);
-            }
+            await context.PostAsync("Login Successful!!!");
+            context.Done(true);
         }
     }
 }

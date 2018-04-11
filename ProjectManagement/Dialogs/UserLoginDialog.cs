@@ -5,7 +5,6 @@ using Microsoft.Bot.Connector;
 using System;
 
 using System.Threading.Tasks;
-using Zest_Client.repository;
 using ZestClientApi.Repository;
 
 namespace ProjectManagement.Dialogs
@@ -41,20 +40,33 @@ namespace ProjectManagement.Dialogs
             var pass = await result as Activity;
             password = (pass.Text);
 
-            var ac = new AuthenticationClient();
-            string t = await ac.TokenCalling(username, password);
-            if (t == null)
+            var ac = new BotAuthenticationClient();
+            string user = await ac.BotAuthentication(username, password);
+
+            if (user != null)
+            {
+                var auth = new AuthenticationClient();
+                string t = await auth.TokenCalling(username, password);
+                if(t == null)
+                {
+                    await context.PostAsync("wrong credentials");
+                    await context.PostAsync("Re-Enter LoginID ::");
+                    context.Wait(GetUser);
+                }
+                if (t != null)
+                {
+                    await context.PostAsync($"Hello {username}, you have successfully logged in.");
+                    //await context.PostAsync($"Response is {t}");
+                    context.UserData.SetValue("Authorization_Token_ProjectManagement", t);
+                    context.Done(true);
+                }
+            }
+            else
             {
                 await context.PostAsync("wrong credentials");
                 context.Wait(GetUser);
             }
-            if (t != null)
-            {
-                await context.PostAsync($"Hello {username}, you have successfully logged in.");
-                //await context.PostAsync($"Response is {t}");
-                context.UserData.SetValue("Token", t);
-                context.Done(true);
-            }
+            
 
             //Conversation.UpdateContainer(
             //   builder =>
@@ -67,6 +79,6 @@ namespace ProjectManagement.Dialogs
             //   });
             //context.Done(true);
         }
-        
-        }
+
     }
+}
